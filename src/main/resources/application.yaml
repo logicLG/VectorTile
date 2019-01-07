@@ -13,6 +13,9 @@ spring:
     url: jdbc:mysql://localhost:3306/test?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
     username: root
     password: 123
+  cache:
+    ehcache:
+      config: ehcache.xml
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
