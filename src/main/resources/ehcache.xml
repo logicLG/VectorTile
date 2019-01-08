@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns='http://www.ehcache.org/v3' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xsi:schemaLocation="http://www.ehcache.org/v3
+        http://www.ehcache.org/schema/ehcache-core-3.0.xsd">
+
+    <cache-template name="default">
+        <heap unit="MB">10</heap>
+    </cache-template>
+
+    <cache alias="getPbfIdById" uses-template="default">
+        <expiry>
+            <ttl unit="minutes">1</ttl>
+        </expiry>
+    </cache>
+
+
+</config>
