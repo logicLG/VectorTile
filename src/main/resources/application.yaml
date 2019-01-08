@@ -1,5 +1,5 @@
 server:
-  port: 13000
+  port: 14000
   tomcat:
     uri-encoding: UTF-8
   servlet:
@@ -9,10 +9,10 @@ spring:
   application:
     name: vector_tile
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
-    username: root
-    password: 123
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@//172.20.3.240:1521/orcl
+    username: ssjt
+    password: ssjt
 mybatis:
   configuration:
     map-underscore-to-camel-case: true

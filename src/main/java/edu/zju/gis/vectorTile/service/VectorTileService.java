@@ -4,5 +4,5 @@ import java.util.Map;
 
 public interface VectorTileService {
 
-    Map<String,Integer> getFeatureLOSBypbfId(String pbfID);
+    Map<Integer, Integer> getFeatureLOSBypbfId(String pbfID);
 }

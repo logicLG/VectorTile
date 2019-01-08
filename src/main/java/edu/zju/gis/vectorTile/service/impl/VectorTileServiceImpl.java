@@ -21,8 +21,8 @@ public class VectorTileServiceImpl implements VectorTileService {
     PbfXyzMapper pbfXyzMapper;
 
     @Override
-    public Map<String, Integer> getFeatureLOSBypbfId(String pbfID) {
-        Map<String, Integer> resultMap = new HashMap();
+    public Map<Integer, Integer> getFeatureLOSBypbfId(String pbfID) {
+        Map<Integer, Integer> resultMap = new HashMap<>();
         PbfXyz pbfXyz = null;
         String content = null;
         try {
@@ -35,16 +35,14 @@ public class VectorTileServiceImpl implements VectorTileService {
 
         List<String> features = Arrays.asList(content.split(","));
         List<Integer> featureIds = features.stream().map(Integer::valueOf).collect(Collectors.toList());
-        int batchSize = 2000;
+        int batchSize = 1000;
         int offset = 0;
         while (offset < featureIds.size()) {
             int end = offset + batchSize;
             if (end > featureIds.size())
                 end = featureIds.size();
             featuresMapper.selectByKeys(featureIds.subList(offset, end))
-                    .forEach(feat -> {
-                        resultMap.put(feat.getUuid().toString(), feat.getLos());
-                    });
+                    .forEach(feat -> resultMap.put(feat.getUuid(), feat.getLos()));
             offset = end;
         }
 //        features.forEach(x -> {
