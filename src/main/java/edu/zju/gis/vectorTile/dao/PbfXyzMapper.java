@@ -2,6 +2,8 @@ package edu.zju.gis.vectorTile.dao;
 
 import edu.zju.gis.vectorTile.entity.PbfXyz;
 
+import java.util.List;
+
 public interface PbfXyzMapper {
     int deleteByPrimaryKey(String gridid);
 
@@ -9,7 +11,7 @@ public interface PbfXyzMapper {
 
     int insertSelective(PbfXyz record);
 
-    PbfXyz selectByPrimaryKey(String gridid);
+    List<PbfXyz> selectByPrimaryKey(String gridid);
 
     int updateByPrimaryKeySelective(PbfXyz record);
 

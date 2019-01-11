@@ -7,10 +7,7 @@ import edu.zju.gis.vectorTile.service.VectorTileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,17 +20,11 @@ public class VectorTileServiceImpl implements VectorTileService {
     @Override
     public Map<Integer, Integer> getFeatureLOSBypbfId(String pbfID) {
         Map<Integer, Integer> resultMap = new HashMap<>();
-        PbfXyz pbfXyz = null;
-        String content = null;
-        try {
-            pbfXyz = pbfXyzMapper.selectByPrimaryKey(pbfID);
-            content = pbfXyz.getContent();
-        } catch (Exception ex) {
-            System.out.println(pbfID + "为空");
-            return resultMap;
-        }
+        List<String> features = new ArrayList<>();
+        List<PbfXyz> xyzList = pbfXyzMapper.selectByPrimaryKey(pbfID);
+        xyzList.forEach(xyz -> Collections.addAll(features, xyz.getContent().split(",")));
 
-        List<String> features = Arrays.asList(content.split(","));
+//        List<String> features = Arrays.asList(pbfXyzMapper.selectByPrimaryKey(pbfID).getContent().split(","));
         List<Integer> featureIds = features.stream().map(Integer::valueOf).collect(Collectors.toList());
         int batchSize = 1000;
         int offset = 0;

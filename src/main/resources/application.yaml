@@ -3,7 +3,7 @@ server:
   tomcat:
     uri-encoding: UTF-8
   servlet:
-    context-path: /test
+    context-path: /vt
 
 spring:
   application:
@@ -13,7 +13,18 @@ spring:
     url: jdbc:oracle:thin:@//172.20.3.240:1521/orcl
     username: ssjt
     password: ssjt
+#    hikari:
+#      auto-commit: true
+#      maximum-pool-size: 8
+#      minimum-idle: 2
+#      idle-timeout: 3000
+#      connection-test-query: select 1
+#      connection-timeout: 3000
+#    type: com.zaxxer.hikari.HikariDataSource
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
   mapper-locations: classpath:mapper/*.xml,edu.zju.gis.vectorTile.mapper/*.xml
+#logging:
+#  level:
+#    edu.zju.gis.vectorTile.dao: DEBUG

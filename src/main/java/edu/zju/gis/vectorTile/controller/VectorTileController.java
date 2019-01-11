@@ -5,28 +5,22 @@ import edu.zju.gis.vectorTile.service.VectorTileService;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
 @Slf4j
 @CrossOrigin
-@Controller
-@RequestMapping("/vectortile")
+@RestController
 public class VectorTileController {
 
     @Autowired
     VectorTileService vectorTileService;
 
-    @RequestMapping(value = "/getFeatureLos", method = RequestMethod.GET)
-    @ResponseBody
-    public String getLosList(String pbfId) {
+    @RequestMapping(value = "/roadLos/{z}/{x}/{y}", method = RequestMethod.GET)
+    public String getLosList(@PathVariable("z") String z, @PathVariable("x") String x, @PathVariable("y") String y) {
         JSONObject jsonObject = new JSONObject();
-        Map<Integer, Integer> tmpMap = vectorTileService.getFeatureLOSBypbfId(pbfId);
+        Map<Integer, Integer> tmpMap = vectorTileService.getFeatureLOSBypbfId(z + "_" + x + "_" + y);
         if (tmpMap.isEmpty()) {
             jsonObject.put("status", "false");
         } else {
