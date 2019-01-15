@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.zju.gis.vectortile.dao.TrafficMapper">
+    <resultMap id="BaseResultMap" type="edu.zju.gis.vectortile.entity.Traffic">
+        <id column="OBJECTID" jdbcType="INTEGER" property="objectid"/>
+        <result column="RTICID" jdbcType="VARCHAR" property="rticid"/>
+        <result column="LOS" jdbcType="INTEGER" property="los"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        OBJECTID,
+        RTICID,
+        LOS
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ROAD2019
+        where OBJECTID = #{value,jdbcType=INTEGER}
+    </select>
+    <select id="selectByKeys" parameterType="collection" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ROAD2019
+        where OBJECTID in
+        <foreach collection="list" item="item" open="(" separator="," close=")">#{item,jdbcType=INTEGER}</foreach>
+    </select>
+    <select id="selectByRticid" parameterType="string" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ROAD2019
+        where RTICID = #{value,jdbcType=VARCHAR}
+    </select>
+    <select id="selectByRticidList" parameterType="collection" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ROAD2019
+        where RTICID in
+        <foreach collection="list" item="item" open="(" separator="," close=")">#{item,jdbcType=VARCHAR}</foreach>
+    </select>
+</mapper>

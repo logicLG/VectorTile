@@ -1,4 +1,4 @@
-package edu.zju.gis.vectorTile;
+package edu.zju.gis.vectortile;
 
 import org.junit.Test;
 

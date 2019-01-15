@@ -24,7 +24,7 @@ spring:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
-  mapper-locations: classpath:mapper/*.xml,edu.zju.gis.vectorTile.mapper/*.xml
+  mapper-locations: classpath:mapper/*.xml,edu.zju.gis.vectortile.mapper/*.xml
 #logging:
 #  level:
-#    edu.zju.gis.vectorTile.dao: DEBUG
+#    edu.zju.gis.vectortile.dao: DEBUG

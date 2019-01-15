@@ -15,11 +15,11 @@
             <!--增加主键的操作，不然没有-->
         <property name="useInformationSchema" value="true"/>
         </jdbcConnection>
-        <javaModelGenerator targetPackage="edu.zju.gis.vectorTile.entity" targetProject="src/main/java"/>
+        <javaModelGenerator targetPackage="edu.zju.gis.vectortile.entity" targetProject="src/main/java"/>
         <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
-        <javaClientGenerator type="XMLMAPPER" targetPackage="edu.zju.gis.vectorTile.dao" targetProject="src/main/java"/>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="edu.zju.gis.vectortile.dao" targetProject="src/main/java"/>
 
-        <table tableName="features" domainObjectName="Features"
+        <table tableName="traffic" domainObjectName="Features"
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
         </table>

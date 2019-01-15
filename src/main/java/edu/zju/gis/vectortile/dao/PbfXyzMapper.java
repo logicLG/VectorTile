@@ -1,6 +1,6 @@
-package edu.zju.gis.vectorTile.dao;
+package edu.zju.gis.vectortile.dao;
 
-import edu.zju.gis.vectorTile.entity.PbfXyz;
+import edu.zju.gis.vectortile.entity.PbfXyz;
 
 import java.util.List;
 

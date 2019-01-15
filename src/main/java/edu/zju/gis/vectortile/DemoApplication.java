@@ -1,14 +1,12 @@
-package edu.zju.gis.vectorTile;
+package edu.zju.gis.vectortile;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 
-import java.sql.Connection;
-
 @SpringBootApplication
-@MapperScan({"edu.zju.gis.vectorTile.dao", "edu.zju.gis.vectorTile.mapper"})
+@MapperScan({"edu.zju.gis.vectortile.dao", "edu.zju.gis.vectortile.mapper"})
 @EnableCaching
 public class DemoApplication {
 
