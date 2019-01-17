@@ -4,17 +4,13 @@ import edu.zju.gis.vectortile.dao.PbfXyzMapper;
 import edu.zju.gis.vectortile.dao.TrafficHistoryMapper;
 import edu.zju.gis.vectortile.dao.TrafficMapper;
 import edu.zju.gis.vectortile.entity.PbfXyz;
-import edu.zju.gis.vectortile.entity.Traffic;
 import edu.zju.gis.vectortile.entity.TrafficHistory;
 import edu.zju.gis.vectortile.service.VectorTileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
-import java.sql.Timestamp;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class VectorTileServiceImpl implements VectorTileService {
