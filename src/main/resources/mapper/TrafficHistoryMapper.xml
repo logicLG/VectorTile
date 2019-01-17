@@ -11,30 +11,30 @@
         LOS,
         UPDATETIME
     </sql>
-    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" statementType="STATEMENT">
         select
         <include refid="Base_Column_List"/>
-        from ROAD2019
-        where OBJECTID = #{value,jdbcType=INTEGER}
+        from ${tableName}
+        where ID = ${value}
     </select>
-    <select id="selectByKeys" parameterType="collection" resultMap="BaseResultMap">
+    <select id="selectByKeys" resultMap="BaseResultMap" statementType="STATEMENT">
         select
         <include refid="Base_Column_List"/>
-        from ROAD2019
-        where OBJECTID in
-        <foreach collection="list" item="item" open="(" separator="," close=")">#{item,jdbcType=INTEGER}</foreach>
+        from ${tableName}
+        where ID in
+        <foreach collection="idList" item="item" open="(" separator="," close=")">${item}</foreach>
     </select>
-    <select id="selectByRticid" parameterType="string" resultMap="BaseResultMap">
+    <select id="selectByRticid" resultMap="BaseResultMap" statementType="STATEMENT">
         select
         <include refid="Base_Column_List"/>
-        from ROAD2019
-        where RTICID = #{value,jdbcType=VARCHAR}
+        from ${tableName}
+        where RTICID = ${value} and UPDATETIME&lt;=${updateTime} order by UPDATETIME desc limit 1
     </select>
-    <select id="selectByRticidList" parameterType="collection" resultMap="BaseResultMap">
+    <select id="selectByRticidList" resultMap="BaseResultMap" statementType="STATEMENT">
         select
         <include refid="Base_Column_List"/>
-        from ROAD2019
+        from ${tableName}
         where RTICID in
-        <foreach collection="list" item="item" open="(" separator="," close=")">#{item,jdbcType=VARCHAR}</foreach>
+        <foreach collection="rticidList" item="item" open="(" separator="," close=")">${item}</foreach>
     </select>
 </mapper>

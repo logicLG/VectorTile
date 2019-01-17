@@ -31,9 +31,9 @@ public class VectorTileController {
     }
 
 
-    @RequestMapping(value = "/history/{z}/{x}/{y}/{time}", method = RequestMethod.GET)
-    public Result<Map<String, Integer>> history(@PathVariable("z") String z, @PathVariable("x") String x
-            , @PathVariable("y") String y, @PathVariable("time") long time) {
+    @RequestMapping(value = "/history", method = RequestMethod.GET)
+    public Result<Map<String, Integer>> history(String z, String x
+            , String y, long time) {
         Map<String, Integer> tmpMap = vectorTileService.getLOSByTile(z + "_" + x + "_" + y, time);
         Result<Map<String, Integer>> result = new Result<>();
         if (tmpMap.isEmpty()) {

@@ -15,20 +15,20 @@
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from TILE_MAP_2019
+        from TILE_MAP_2019_2
         where ID = #{gridId,jdbcType=VARCHAR}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
         delete
-        from TILE_MAP_2019
+        from TILE_MAP_2019_2
         where ID = #{gridId,jdbcType=VARCHAR}
     </delete>
     <insert id="insert" parameterType="edu.zju.gis.vectortile.entity.PbfXyz">
-        insert into TILE_MAP_2019 (ID, content)
+        insert into TILE_MAP_2019_2 (ID, content)
         values (#{gridId,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR})
     </insert>
     <insert id="insertSelective" parameterType="edu.zju.gis.vectortile.entity.PbfXyz">
-        insert into TILE_MAP_2019
+        insert into TILE_MAP_2019_2
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="gridId != null">
                 ID,
@@ -47,7 +47,7 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKeySelective" parameterType="edu.zju.gis.vectortile.entity.PbfXyz">
-        update TILE_MAP_2019
+        update TILE_MAP_2019_2
         <set>
             <if test="content != null">
                 content = #{content,jdbcType=VARCHAR},
@@ -56,7 +56,7 @@
         where ID = #{gridId,jdbcType=VARCHAR}
     </update>
     <update id="updateByPrimaryKeyWithBLOBs" parameterType="edu.zju.gis.vectortile.entity.PbfXyz">
-        update TILE_MAP_2019
+        update TILE_MAP_2019_2
         set content = #{content,jdbcType=VARCHAR}
         where ID = #{gridId,jdbcType=VARCHAR}
     </update>

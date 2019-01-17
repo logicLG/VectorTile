@@ -7,7 +7,7 @@
         <heap unit="MB">10</heap>
     </cache-template>
 
-    <cache alias="getPbfIdById" uses-template="default">
+    <cache alias="getLOSByTile" uses-template="default">
         <expiry>
             <ttl unit="minutes">1</ttl>
         </expiry>
