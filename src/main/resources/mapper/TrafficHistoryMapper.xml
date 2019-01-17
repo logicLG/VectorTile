@@ -36,5 +36,6 @@
         from ${tableName}
         where RTICID in
         <foreach collection="rticidList" item="item" open="(" separator="," close=")">${item}</foreach>
+        and UPDATETIME&lt;${updateMaxTime} and UPDATETIME&gt;${updateMinTime}
     </select>
 </mapper>

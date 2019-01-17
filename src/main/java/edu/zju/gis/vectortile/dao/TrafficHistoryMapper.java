@@ -12,5 +12,5 @@ public interface TrafficHistoryMapper {
 
     TrafficHistory selectByRticid(@Param("tableName") String tableName, @Param("value") String rticid, @Param("updateTime") String time);
 
-    List<TrafficHistory> selectByRticidList(@Param("tableName") String tableName, @Param("rticidList") List<String> rticidList);
+    List<TrafficHistory> selectByRticidList(@Param("tableName") String tableName, @Param("rticidList") List<String> rticidList, @Param("updateMaxTime") String updateMaxTime, @Param("updateMinTime") String updateMinTime);
 }
