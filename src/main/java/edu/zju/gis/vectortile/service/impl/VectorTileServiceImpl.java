@@ -60,13 +60,17 @@ public class VectorTileServiceImpl implements VectorTileService {
             Map<String,List<String>> map=getDateMapFromLastMonth(time);
             roads.forEach(rticid -> {
                 int LOSCount=0;
+                int number = 0;
                 for(Map.Entry<String,List<String>> entry:map.entrySet()){
                     for (String updateTime : entry.getValue()) {
                         TrafficHistory traffic = trafficHistoryMapper.selectByRticid(entry.getKey(), rticid, updateTime);
-                        LOSCount+=traffic.getLos();
+                        if (traffic != null) {
+                            LOSCount += traffic.getLos();
+                            number++;
+                        }
                     }
                 }
-                int LOSAverage= (int) Math.round(LOSCount/4.0);
+                int LOSAverage = (int) Math.round(1.0 * LOSCount / number);
                 if(LOSAverage>3||LOSAverage<1){
                     LOSAverage=1;
                 }
@@ -78,7 +82,8 @@ public class VectorTileServiceImpl implements VectorTileService {
             String updateTime=map.get(tableName);
             roads.forEach(rticid -> {
                 TrafficHistory traffic = trafficHistoryMapper.selectByRticid(tableName, rticid, updateTime);
-                resultMap.put(rticid,traffic.getLos());
+                if (traffic != null)
+                    resultMap.put(rticid, traffic.getLos());
             });
         }
         return resultMap;

@@ -28,7 +28,7 @@
         select
         <include refid="Base_Column_List"/>
         from ${tableName}
-        where RTICID = ${value} and UPDATETIME&lt;=${updateTime} order by UPDATETIME desc limit 1
+        where RTICID = '${value}' and UPDATETIME&lt;='${updateTime}' and rownum&lt;2
     </select>
     <select id="selectByRticidList" resultMap="BaseResultMap" statementType="STATEMENT">
         select
