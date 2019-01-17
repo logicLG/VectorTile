@@ -18,7 +18,7 @@ public class VectorTileControllerTest {
     @Test
     public void getLosList() {
         long currentTimeStamp = System.currentTimeMillis();
-        Result<Map<String, Integer>> s = vectorTileController.getLosList("10", "1677", "712");
+        Result<Map<String, Integer>> s = vectorTileController.getLosList("12", "3385", "1440");
         long nowTimeStamp = System.currentTimeMillis();
         System.out.println(nowTimeStamp - currentTimeStamp);
         System.out.println(s);
